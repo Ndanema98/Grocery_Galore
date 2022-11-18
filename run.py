@@ -35,6 +35,7 @@ def validate_data(values):
     or if there arent't exactly 6 values.
     """
     try:
+        [int(value) for value in values]
         if len(values) != 7:
             raise ValueError(
                 f"Exactly 7 figures are needed, you have provided {len(values)}"
@@ -44,10 +45,6 @@ def validate_data(values):
 
     print(values)
 
-
-
-
-    #print(f"The data you have provided is {data_str}")
 
 
 get_dailysales_data()
