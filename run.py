@@ -19,15 +19,24 @@ def get_dailysales_data():
     """
     Request daily sales data from users
     """
-    print("Please enter the sales data from the past day")
-    print("Enter the daily sales data in this order: Apples, Oranges, Bananas, Avocado, Pears, Grapes, Mangos")
-    print("Input should be 7 numbers, seperated by commas.")
-    print("Example: 11,22,33,44,55,66,77\n")
+    while True:
 
-    data_str = input("Enter your data here: ")
+        print("Please enter the sales data from the past day")
+        print("Enter the daily sales data in this order: Apples, Oranges, Bananas, Avocado, Pears, Grapes, Mangos")
+        print("Input should be 7 numbers, seperated by commas.")
+        print("Example: 11,22,33,44,55,66,77\n")
 
-    dailysales_data = data_str.split(",")
-    validate_data(dailysales_data)
+        data_str = input("Enter your data here: ")
+
+        dailysales_data = data_str.split(",")
+
+        if validate_data(dailysales_data):
+            print("Data is valid!")
+            break
+    return dailysales_data
+
+
+
 
 def validate_data(values):
     """
@@ -42,11 +51,14 @@ def validate_data(values):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try agaian.\n")
+        return False
+
+    return True
 
     print(values)
 
 
 
-get_dailysales_data()
+data = get_dailysales_data()
 
 
