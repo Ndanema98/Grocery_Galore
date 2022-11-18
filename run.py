@@ -25,7 +25,29 @@ def get_dailysales_data():
     print("Example: 11,22,33,44,55,66,77\n")
 
     data_str = input("Enter your data here: ")
-    print(f"The data you have provided is {data_str}")
+
+    dailysales_data = data_str.split(",")
+    validate_data(dailysales_data)
+
+def validate_data(values):
+    """
+    Raises ValueError if strings cannot be converted into integers,
+    or if there arent't exactly 6 values.
+    """
+    try:
+        if len(values) != 7:
+            raise ValueError(
+                f"Exactly 7 figures are needed, you have provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try agaian.\n")
+
+    print(values)
+
+
+
+
+    #print(f"The data you have provided is {data_str}")
 
 
 get_dailysales_data()
