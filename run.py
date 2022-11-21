@@ -57,20 +57,52 @@ def validate_data(values):
 
     print(values)
 
-def update_sales_worksheet(data):
+def update_sales_worksheet(datasa):
     """
     Update sales worksheet
     """
     print("Updating sales worksheet...\n")
     sales_worksheet = SHEET.worksheet("Dailysales")
-    sales_worksheet.append_row(data)
+    sales_worksheet.append_row(datasa)
     print("The sales worksheet updated successfully.\n")
 
 
+def get_dailywaste_data():
+    """
+    Request daily waste data from users
+    """
+    while True:
+
+        print("Please enter the waste data from the past day")
+        print("Enter the daily waste data in this order: Apples, Oranges, Bananas, Avocado, Pears, Grapes, Mangos")
+        print("Input should be 7 numbers, seperated by commas.")
+        print("Example: 11,22,33,44,55,66,77\n")
+
+        data_str = input("Enter your data here: ")
+
+        dailywaste_data = data_str.split(",")
+
+        if validate_data(dailywaste_data):
+            print("Data is valid!")
+            break
+    return dailywaste_data
 
 
-data = get_dailysales_data()
-dailysales_data = [int(num) for num in data]
+def update_waste_worksheet(datawa):
+    """
+    Update waste worksheet
+    """
+    print("Updating waste worksheet...\n")
+    waste_worksheet = SHEET.worksheet("Dailywastechart")
+    waste_worksheet.append_row(datawa)
+    print("The waste worksheet updated successfully.\n")
+
+
+datasa = get_dailysales_data()
+dailysales_data = [int(num) for num in datasa]
 update_sales_worksheet(dailysales_data)
+datawa = get_dailywaste_data()
+dailywaste_data = [int(num) for num in datawa]
+update_waste_worksheet(dailywaste_data)
 
 
