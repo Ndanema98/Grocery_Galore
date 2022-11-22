@@ -55,7 +55,7 @@ def validate_data(values):
 
     return True
 
-    print(values)
+
 
 def update_sales_worksheet(datasa):
     """
@@ -98,11 +98,18 @@ def update_waste_worksheet(datawa):
     print("The waste worksheet updated successfully.\n")
 
 
-datasa = get_dailysales_data()
-dailysales_data = [int(num) for num in datasa]
-update_sales_worksheet(dailysales_data)
-datawa = get_dailywaste_data()
-dailywaste_data = [int(num) for num in datawa]
-update_waste_worksheet(dailywaste_data)
+def main():
+    """
+    Run all the functions of the programme.
+    """
+    datasa = get_dailysales_data()
+    dailysales_data = [int(num) for num in datasa]
+    update_sales_worksheet(dailysales_data)
+    datawa = get_dailywaste_data()
+    dailywaste_data = [int(num) for num in datawa]
+    update_waste_worksheet(dailywaste_data)
 
+
+print("Welcome to Grocery Galore Data Automation.")
+main()
 
