@@ -97,6 +97,20 @@ def update_waste_worksheet(datawa):
     waste_worksheet.append_row(datawa)
     print("The waste worksheet updated successfully.\n")
 
+def calculate_newstock_data(sales_row, waste_row):
+    """ 
+    Compare sales and waste data with the preivious stock and the retock data to calculate the new stock for each item type.
+
+    The new stock is calculated by subtracting the daily sales and the daily waste from the previous stock and andding the daily restock level
+   
+    """
+    print("Calculating new stock data...\n")
+    stock = SHEET.worksheet("Stocklevels").get_all_values()
+    stock_row = stock[-1]
+    print(stock_row)
+    print(sales_row)
+    print(waste_row)
+
 
 def main():
     """
@@ -108,6 +122,16 @@ def main():
     datawa = get_dailywaste_data()
     dailywaste_data = [int(num) for num in datawa]
     update_waste_worksheet(dailywaste_data)
+    calculate_newstock_data(dailysales_data, dailywaste_data)
+    
+    
+
+
+
+
+
+
+
 
 
 print("Welcome to Grocery Galore Data Automation.")
