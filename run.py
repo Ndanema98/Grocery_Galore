@@ -97,6 +97,15 @@ def update_waste_worksheet(datawa):
     waste_worksheet.append_row(datawa)
     print("The waste worksheet updated successfully.\n")
 
+def update_stock_worksheet(newstock_data):
+    """
+    Update stocklevel worksheet
+    """
+    print("Updating stock worksheet...\n")
+    stock_worksheet = SHEET.worksheet("Stocklevels")
+    stock_worksheet.append_row(newstock_data)
+    print("The stock worksheet updated successfully.\n")
+
 def calculate_newstock_data(sales_row, waste_row):
     """ 
     Compare sales and waste data with the preivious stock and the retock data to calculate the new stock for each item type.
@@ -117,11 +126,6 @@ def calculate_newstock_data(sales_row, waste_row):
 
     return newstock_data
     
-   # print(stock_row)
-    #print(sales_row)
-    #print(waste_row)
-    #print(restock_row)
-
 
 def main():
     """
@@ -135,6 +139,9 @@ def main():
     update_waste_worksheet(dailywaste_data)
     newstock_data = calculate_newstock_data(dailysales_data, dailywaste_data)
     print(newstock_data)
+    update_stock_worksheet(newstock_data)
+
+
 
 
     

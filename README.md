@@ -27,14 +27,13 @@ This programme was built using knowledge gained from Python modules, for the pur
    ### Developer's Goals.
    As the developer I want:
    - To provide a useful programme that fufills it's aims. 
-   - 
-   - 
+   - To have the programme run smoothly without crashing. 
+   
  
  - ## Design 
    ### Flowchart
    ![A screenshot of my flowchart]()
 
-   ### Wireframes
 
    
    
@@ -73,9 +72,7 @@ This programme was built using knowledge gained from Python modules, for the pur
    - Gitpod 
      - The programme used to code my website.
    - Github 
-     - Allowed me to store my repository and files pushed from Gitpod.
-   - Fontawesome 
-     - Used to display icons to make my website more visually appealing. 
+     - Allowed me to store my repository and files pushed from Gitpod. 
    - Chrome developer tools 
      - Allowed me to troubleshoot and edit my code.
    
