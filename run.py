@@ -109,10 +109,18 @@ def calculate_newstock_data(sales_row, waste_row):
     stock_row = stock[-1]
     restock = SHEET.worksheet("Dailyrestock").get_all_values()
     restock_row = restock[-1]
-    print(stock_row)
-    print(sales_row)
-    print(waste_row)
-    print(restock_row)
+
+    newstock_data = []
+    for stock, sales, waste, restock in zip(stock_row, sales_row, waste_row, restock_row):
+        newstock = int(stock) - (sales + waste) + int(restock)
+        newstock_data.append(newstock)
+
+    return newstock_data
+    
+   # print(stock_row)
+    #print(sales_row)
+    #print(waste_row)
+    #print(restock_row)
 
 
 def main():
@@ -125,7 +133,9 @@ def main():
     datawa = get_dailywaste_data()
     dailywaste_data = [int(num) for num in datawa]
     update_waste_worksheet(dailywaste_data)
-    calculate_newstock_data(dailysales_data, dailywaste_data)
+    newstock_data = calculate_newstock_data(dailysales_data, dailywaste_data)
+    print(newstock_data)
+
 
     
 
