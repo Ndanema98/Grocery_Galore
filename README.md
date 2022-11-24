@@ -1,31 +1,114 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Milestone project 3
+# Grocery Galore Survey Data Analysis
 
-Welcome Ndanema98,
+["Grocery Galore Survey Data Analysis"]() is a programme designed to manage the data of a fruit store.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+This programme was built for a company which sells fruits. It will allow the user to input the daily sales data and the daily waste data of a specific fruit and add it to a google spreadsheet. The programme will also calculate the new stock levels of the fruits and calculate restock recommendations. Different validation methods are also present throughtout this programme to check whether the data being inputted is valid.
 
-## Reminders
+Spreadsheets are a great way to store data for companies because it allows them to organise and perform calculations on the data. This enables them to make important predictions and decisions, which on a whole will benefit them. 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+This programme was built using knowledge gained from Python modules, for the purpose of completing my third Milestone Project for the Code Institute's full stack developer course. This programme is easy to navigate and easy to read, with a clear goal and aim. 
 
-## Creating the Heroku app
+ # User Experience/User Interface (UX/UI)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+ - ## User Stories
+   ### First Time User Goals
+   As a first time user I want: 
+   - To be able to understand the aim of the programme and how it works. 
+   - To be able to use the programme in relation to my business. 
+   - The programme to function correctly. 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+   ### Frequent User Goals
+   As a frequent user I want:
+   - The programme to be fluent and easy to use. 
+   - The programme to positively affect my business.
+   - The programme to function correctly. 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+   ### Developer's Goals.
+   As the developer I want:
+   - To provide a useful programme that fufills it's aims. 
+   - 
+   - 
+ 
+ - ## Design 
+   ### Flowchart
+   ![A screenshot of my flowchart]()
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+   ### Wireframes
 
-Connect your GitHub repository and deploy as normal.
+   
+   
 
-## Constraints
+ # Features
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+ - ## Possible Future Features
+   
+    
+ # Testing 
+ - ## Manual 
+   
+
+ - ## Validator 
+
+   - ### Python
+     
+
+  - ## Accessibility 
+    
+  
+- ## Bugs 
+   - ### Solved 
+    
+
+   - ### Unsolved 
+     
+      
+ # Languages used 
+
+
+ # Technologies Used 
+   - Git 
+     - Allowed me to add commit and push my code to github for version control. 
+   - Gitpod 
+     - The programme used to code my website.
+   - Github 
+     - Allowed me to store my repository and files pushed from Gitpod.
+   - Fontawesome 
+     - Used to display icons to make my website more visually appealing. 
+   - Chrome developer tools 
+     - Allowed me to troubleshoot and edit my code.
+   
+  
+ # Deployment
+  - ## Remote 
+   1. Click on the settings icon in the navigation bar.
+   2. Scoll until Github pages is visable.
+   3. Once clicked change the branch to "main" and change the directory to "root". 
+   4. Next, click the save button.  
+   5. It may take a few moments for the website to publish but once its done, a link to the live website will be provided. 
+
+  - ## Forking
+   1. In the top right corner of the page click on the fork button. 
+   2. The next page will show a forked version of my project. 
+
+  - ## Cloning a repository
+   1. Fork the repository using the steps above. 
+   2. Next click code 
+   3. You will then be asked if you want to clone using HTTPS, SSH or Github CLI
+   4. Click the copy button
+   5. Open Git bash and select the directory you want the clone to go to
+   6. Type git clone and then paste the URL. 
+   7. Lastly press enter and your clone will be created. 
+
+ # Credits
+ - ## Code
+   
+
+ - ## Information 
+   
+
+ # Acknowledgement 
+    - The online tutors that Code Institute provides. 
+    - My mentor Ben Kav for helping me when I was stuck. 
+    - Everybody on slack, for their advice. 

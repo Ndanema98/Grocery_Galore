@@ -107,9 +107,12 @@ def calculate_newstock_data(sales_row, waste_row):
     print("Calculating new stock data...\n")
     stock = SHEET.worksheet("Stocklevels").get_all_values()
     stock_row = stock[-1]
+    restock = SHEET.worksheet("Dailyrestock").get_all_values()
+    restock_row = restock[-1]
     print(stock_row)
     print(sales_row)
     print(waste_row)
+    print(restock_row)
 
 
 def main():
@@ -123,12 +126,8 @@ def main():
     dailywaste_data = [int(num) for num in datawa]
     update_waste_worksheet(dailywaste_data)
     calculate_newstock_data(dailysales_data, dailywaste_data)
+
     
-    
-
-
-
-
 
 
 
@@ -136,4 +135,5 @@ def main():
 
 print("Welcome to Grocery Galore Data Automation.")
 main()
+
 
