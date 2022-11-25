@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -126,6 +127,23 @@ def calculate_newstock_data(sales_row, waste_row):
 
     return newstock_data
     
+def get_weekly_entries():
+    """
+    Collects collumns of data from sales and waste worksheets, collecting the 
+    last seven entires for each fruit and returning the data as a list.
+    """
+    sales = SHEET.worksheet("Dailysales")
+    waste = SHEET.worksheet("Dailywastechart")
+
+    columns = []
+    for ind in range(1, 8):
+        columnsales = sales.col_values(ind)
+        columnwastes = waste.col_values(ind)
+        columns.append(columnsales[-7:])
+        columns.append(columnwastes[-7:])
+        pprint(columns)
+
+
 
 def main():
     """
@@ -142,15 +160,9 @@ def main():
     update_stock_worksheet(newstock_data)
 
 
-
-
-    
-
-
-
-
-
 print("Welcome to Grocery Galore Data Automation.")
-main()
+#main()
+get_weekly_entries()
+
 
 
