@@ -32,7 +32,7 @@ This programme was built using knowledge gained from Python modules, for the pur
  
  - ## Design 
    ### Flowchart
-   ![A screenshot of my flowchart]()
+   ![A screenshot of my flowchart](/assets/flowchart.jpeg)
 
 
    

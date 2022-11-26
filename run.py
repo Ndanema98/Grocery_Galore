@@ -1,6 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
@@ -15,6 +12,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Grocery_Galore')
+
 
 def get_dailysales_data():
     """
@@ -37,8 +35,6 @@ def get_dailysales_data():
     return dailysales_data
 
 
-
-
 def validate_data(values):
     """
     Raises ValueError if strings cannot be converted into integers,
@@ -55,7 +51,6 @@ def validate_data(values):
         return False
 
     return True
-
 
 
 def update_sales_worksheet(datasa):
@@ -98,6 +93,7 @@ def update_waste_worksheet(datawa):
     waste_worksheet.append_row(datawa)
     print("The waste worksheet updated successfully.\n")
 
+
 def update_stock_worksheet(newstock_data):
     """
     Update stocklevel worksheet
@@ -106,6 +102,7 @@ def update_stock_worksheet(newstock_data):
     stock_worksheet = SHEET.worksheet("Stocklevels")
     stock_worksheet.append_row(newstock_data)
     print("The stock worksheet updated successfully.\n")
+
 
 def calculate_newstock_data(sales_row, waste_row):
     """ 
@@ -127,6 +124,7 @@ def calculate_newstock_data(sales_row, waste_row):
 
     return newstock_data
     
+
 def get_weekly_entries():
     """
     Collects collumns of data from sales and waste worksheets, collecting the 
@@ -139,10 +137,21 @@ def get_weekly_entries():
     for ind in range(1, 8):
         columnsales = sales.col_values(ind)
         columnwastes = waste.col_values(ind)
-        columns.append(columnsales[-7:])
+        columns.append(columnsales[-7:]) 
         columns.append(columnwastes[-7:])
-        pprint(columns)
+        
+    return columns
 
+
+def calculate_restock(outgoing_columns):
+    """
+    Calculate the average of the fruits sales and waste combined and add 
+    10% to calculate restock ammount
+    """
+    print("Calculating restock ammount...\n")
+    restock_data = []
+
+    for column in outgoing_columns: 
 
 
 def main():
@@ -162,7 +171,8 @@ def main():
 
 print("Welcome to Grocery Galore Data Automation.")
 #main()
-get_weekly_entries()
+outgoing_columns = get_weekly_entries()
+calculate_restock(outgoing_columns)
 
 
 
