@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -25,7 +25,7 @@ def get_dailysales_data():
         print("Input should be 7 numbers, seperated by commas.")
         print("Example: 11,22,33,44,55,66,77\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
 
         dailysales_data = data_str.split(",")
 
@@ -74,7 +74,7 @@ def get_dailywaste_data():
         print("Input should be 7 numbers, seperated by commas.")
         print("Example: 11,22,33,44,55,66,77\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
 
         dailywaste_data = data_str.split(",")
 
@@ -136,7 +136,6 @@ def get_weeklysales_entries():
     for ind in range(1, 8):
         columna = sales.col_values(ind)
         columnsales.append(columna[-7:]) 
-    pprint(columnsales)
 
     return columnsales
 
