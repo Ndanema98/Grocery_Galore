@@ -125,33 +125,71 @@ def calculate_newstock_data(sales_row, waste_row):
     return newstock_data
     
 
-def get_weekly_entries():
+def get_weeklysales_entries():
     """
-    Collects collumns of data from sales and waste worksheets, collecting the 
+    Collects collumns of data from the sales worksheet, collecting the 
     last seven entires for each fruit and returning the data as a list.
     """
     sales = SHEET.worksheet("Dailysales")
+
+    columnsales = []
+    for ind in range(1, 8):
+        columna = sales.col_values(ind)
+        columnsales.append(columna[-7:]) 
+    pprint(columnsales)
+
+    return columnsales
+
+
+def get_weeklywastes_entries():
+    """
+    Collects collumns of data from the waste worksheet, collecting the
+    last seven entires for each fruit and returning the data as a list.
+    """
     waste = SHEET.worksheet("Dailywastechart")
 
-    columns = []
+    columnwastes = []
     for ind in range(1, 8):
-        columnsales = sales.col_values(ind)
-        columnwastes = waste.col_values(ind)
-        columns.append(columnsales[-7:]) 
-        columns.append(columnwastes[-7:])
-        
-    return columns
+        columnb = waste.col_values(ind)
+        columnwastes.append(columnb[-7:])
+    pprint(columnwastes)
+    
+    ints = []
+
+    for element in columnwastes:
+        ints.append(int(element))
+    print(type(columnwastes))
 
 
-def calculate_restock(outgoing_columns):
+def add_entries():
+    """
+    Adding the two column entries together.
+    """
+    columns = columnsale
+    columnw = columnwaste
+
+    entires_data = []
+    for columns, columnw in zip(columnsale, columnwaste):
+        new_entry = int(columns) + int(columnw)
+        pprint(new_entry)
+
+    return entires_data
+
+
+def calculate_restock(data):
     """
     Calculate the average of the fruits sales and waste combined and add 
     10% to calculate restock ammount
-    """
+    #"""
     print("Calculating restock ammount...\n")
+    
     restock_data = []
 
-    for column in outgoing_columns: 
+    for column in data:
+        int_column = [int(num) for num in column]
+        total = sum(int_column)
+        pprint(total)
+    return restock_data
 
 
 def main():
@@ -171,8 +209,11 @@ def main():
 
 print("Welcome to Grocery Galore Data Automation.")
 #main()
-outgoing_columns = get_weekly_entries()
-calculate_restock(outgoing_columns)
+
+columnsale = get_weeklysales_entries()
+columnwaste = get_weeklywastes_entries()
+#calculate_restock()
+add_entries()
 
 
 

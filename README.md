@@ -35,9 +35,6 @@ This programme was built using knowledge gained from Python modules, for the pur
    ![A screenshot of my flowchart](/assets/flowchart.jpeg)
 
 
-   
-   
-
  # Features
 
 
@@ -100,9 +97,7 @@ This programme was built using knowledge gained from Python modules, for the pur
 
  # Credits
  - ## Code
-   
-
- - ## Information 
+ 
    
 
  # Acknowledgement 
