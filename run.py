@@ -114,12 +114,12 @@ def calculate_newstock_data(sales_row, waste_row):
     print("Calculating new stock data...\n")
     stock = SHEET.worksheet("Stocklevels").get_all_values()
     stock_row = stock[-1]
-    restock = SHEET.worksheet("Dailyrestock").get_all_values()
-    restock_row = restock[-1]
+    restock_d = SHEET.worksheet("Dailyrestock").get_all_values()
+    restock_row = restock_d[-1]
 
     newstock_data = []
-    for stock, sales, waste, restock in zip(stock_row, sales_row, waste_row, restock_row):
-        newstock = int(stock) - (sales + waste) + int(restock)
+    for stock, sales, waste, restock_d in zip(stock_row, sales_row, waste_row, restock_row):
+        newstock = int(stock) - (sales + waste) + int(restock_d)
         newstock_data.append(newstock)
 
     return newstock_data
@@ -155,9 +155,18 @@ def calculate_restock(data):
         average = sum(int_column)/7+50
         stock_num = average * 1.1
         restock_data.append(round(stock_num))
-    pprint(restock_data)
     return restock_data
-    
+
+
+def update_restock_worksheet(restock):
+    """
+    Update restock worksheet
+    """
+    print("Updating restock worksheet...\n")
+    restock_worksheet = SHEET.worksheet("Dailyrestock")
+    restock_worksheet.append_row(restock)
+    print("The restock worksheet updated successfully.\n")
+
 
 def main():
     """
@@ -169,16 +178,17 @@ def main():
     datawa = get_dailywaste_data()
     dailywaste_data = [int(num) for num in datawa]
     update_waste_worksheet(dailywaste_data)
+    columnsale = get_weeklysales_entries()
+    restock = calculate_restock(columnsale)
+    update_restock_worksheet(restock)
     newstock_data = calculate_newstock_data(dailysales_data, dailywaste_data)
     print(newstock_data)
     update_stock_worksheet(newstock_data)
 
 
 print("Welcome to Grocery Galore Data Automation.")
-#main()
+main()
 
-columnsale = get_weeklysales_entries()
-restock = calculate_restock(columnsale)
 
 
 
