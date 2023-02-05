@@ -159,6 +159,7 @@ def add_columnsales_columnwaste(columnsales, columnwastes):
     result = []
     for i in range(7):
         result.append([int(columnsales[j][i]) + int(columnwastes[j][i]) for j in range(7)])
+    
     return result
 
 
@@ -173,7 +174,7 @@ def calculate_restock(data):
 
     for column in data:
         int_column = [int(num) for num in column]
-        average = sum(int_column)/7+50
+        average = sum(int_column)/7
         stock_num = average * 1.1
         restock_data.append(round(stock_num))
     return restock_data
@@ -211,9 +212,10 @@ print("Welcome to Grocery Galore Data Automation.")
 #main()
 columnsale = get_weeklysales_entries()
 columnwaste = get_weeklywaste_entries()
-result = add_columnsales_columnwaste(columnsale, columnwaste)
-print(result)
-#restock = calculate_restock(columnsale)
+results = add_columnsales_columnwaste(columnsale, columnwaste)
+print(results)
+restock = calculate_restock(results)
+print(restock)
 
 
 
