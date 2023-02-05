@@ -125,14 +125,6 @@ def calculate_newstock_data(sales_row, waste_row):
     return newstock_data
     
 
-def sum_columnsales_columnwaste(columnsales, columnwaste):
-    total = []
-    for i in range(len(columnsales)):
-        column_sum = [x + y for x, y in zip(columnsales[i], columnwaste[i])]
-        total.append(column_sum)
-    return total
-
-    
 def get_weeklysales_entries():
     """
     Collects collumns of data from the sales worksheet, collecting the 
@@ -161,6 +153,13 @@ def get_weeklywaste_entries():
         columnwastes.append(columnw[-7:]) 
 
     return columnwastes
+
+
+def add_columnsales_columnwaste(columnsales, columnwastes):
+    result = []
+    for i in range(7):
+        result.append([int(columnsales[j][i]) + int(columnwastes[j][i]) for j in range(7)])
+    return result
 
 
 def calculate_restock(data):
@@ -212,7 +211,7 @@ print("Welcome to Grocery Galore Data Automation.")
 #main()
 columnsale = get_weeklysales_entries()
 columnwaste = get_weeklywaste_entries()
-result = sum_columnsales_columnwaste(columnsale, columnwaste)
+result = add_columnsales_columnwaste(columnsale, columnwaste)
 print(result)
 #restock = calculate_restock(columnsale)
 
