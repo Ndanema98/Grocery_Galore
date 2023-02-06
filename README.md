@@ -50,7 +50,6 @@ This programme was built using knowledge gained from Python modules, for the pur
    - ### Python
      
 
-  - ## Accessibility 
     
   
 - ## Bugs 
@@ -60,7 +59,7 @@ This programme was built using knowledge gained from Python modules, for the pur
    - ### Unsolved 
      
       
- # Languages used 
+
 
 
  # Technologies Used 
@@ -73,34 +72,22 @@ This programme was built using knowledge gained from Python modules, for the pur
    - Chrome developer tools 
      - Allowed me to troubleshoot and edit my code.
    
-  
  # Deployment
-  - ## Remote 
-   1. Click on the settings icon in the navigation bar.
-   2. Scoll until Github pages is visable.
-   3. Once clicked change the branch to "main" and change the directory to "root". 
-   4. Next, click the save button.  
-   5. It may take a few moments for the website to publish but once its done, a link to the live website will be provided. 
+  - This code was deployed using Code Institute's mock terminal for Heroku. 
 
-  - ## Forking
+  - ## Steps for deployment:
    1. In the top right corner of the page click on the fork button. 
-   2. The next page will show a forked version of my project. 
+   2. The next page will show a forked version of my project.
+   3. Create a new Heroku app.
+   4. Set the buildbacks to Python and NodeJS in that order.
+   5. Link the Heroku app to the repository. 
+   6. Click on deploy. 
 
-  - ## Cloning a repository
-   1. Fork the repository using the steps above. 
-   2. Next click code 
-   3. You will then be asked if you want to clone using HTTPS, SSH or Github CLI
-   4. Click the copy button
-   5. Open Git bash and select the directory you want the clone to go to
-   6. Type git clone and then paste the URL. 
-   7. Lastly press enter and your clone will be created. 
 
  # Credits
- - ## Code
- 
-   
 
- # Acknowledgement 
+ ## Acknowledgement 
     - The online tutors that Code Institute provides. 
+    - Code institute for the deployment terminal. 
     - My mentor Ben Kav for helping me when I was stuck. 
     - Everybody on slack, for their advice. 
