@@ -110,7 +110,29 @@ This programme was built using knowledge gained from Python modules, for the pur
     
  # Testing 
  - ## Manual 
-   
+   - I have manually tested the code by doing the following: 
+      - Passed the code through a Pep8 Validator. 
+      - Given invalid inputs, to test the validation. 
+      - Tested code in local terminal and the Code Institute Heroku terminal. 
+
+
+   ![A screenshot of the testing done for less than 7 figures.](/assets/validation_lessthan7.png)
+
+
+   - This test was done to make sure that no less than 7 values can be inputted. 
+
+
+   ![A screenshot of the testing done for more than 7 figures.](/assets/validation_morethan7.png)
+
+
+   - This test was done to make sure that no more than 7 values can be inputted. 
+
+
+   ![A screenshot of the testing done for none numerical figures.](/assets/validation_nonenumerical.png)
+
+
+   - This test was done to make sure that only numerical values were inputted.  
+
 
  - ## Validator 
    - ### Python
@@ -118,7 +140,7 @@ This programme was built using knowledge gained from Python modules, for the pur
   
 - ## Bugs 
    - ### Solved 
-    
+     - When trying to write the function to calculate the restock data, I had to add the sales column to the waste column. When trying to do this it didnt do the addition of the two columns properly as they were strings. Therefore I had to convert the columns from strings into integers before the addition was done. 
 
    - ### Unsolved
    No remaining bugs left in the code.   
