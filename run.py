@@ -21,8 +21,8 @@ def get_dailysales_data():
     while True:
 
         print("Please enter the sales data from the past day")
-        print("Enter the daily sales data in this order: Apples, Oranges,\
-              Bananas, Avocado, Pears, Grapes, Mangos")
+        print("Enter the daily sales data in this order: Apples, Oranges,"
+              " Bananas, Avocado, Pears, Grapes, Mangos")
         print("Input should be 7 numbers, seperated by commas.")
         print("Example: 11,22,33,44,55,66,77\n")
 
@@ -39,14 +39,13 @@ def get_dailysales_data():
 def validate_data(values):
     """
     Raises ValueError if strings cannot be converted into integers,
-    or if there arent't exactly 6 values.
+    or if there arent't exactly 7 values.
     """
     try:
         [int(value) for value in values]
         if len(values) != 7:
             raise ValueError(
-                f"Exactly 7 figures are needed,\
-                     you have provided {len(values)}"
+                f"7 figures are needed, you have provided {len(values)}"
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try agaian.\n")
@@ -72,8 +71,8 @@ def get_dailywaste_data():
     while True:
 
         print("Please enter the waste data from the past day")
-        print("Enter the daily waste data in this order: Apples, Oranges,\
-             Bananas, Avocado, Pears, Grapes, Mangos")
+        print("Enter the daily waste data in this order: Apples, Oranges,"
+              " Bananas, Avocado, Pears, Grapes, Mangos")
         print("Input should be 7 numbers, seperated by commas.")
         print("Example: 11,22,33,44,55,66,77\n")
 
