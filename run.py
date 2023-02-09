@@ -98,7 +98,6 @@ def update_waste_worksheet(datawa):
     waste_worksheet = SHEET.worksheet("Dailywastechart")
     waste_worksheet.append_row(datawa)
     print("The waste worksheet updated successfully.\n")
-    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def update_stock_worksheet(newstock_data):
@@ -109,7 +108,6 @@ def update_stock_worksheet(newstock_data):
     stock_worksheet = SHEET.worksheet("Stocklevels")
     stock_worksheet.append_row(newstock_data)
     print("The stock worksheet updated successfully.\n")
-    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def calculate_newstock_data(sales_row, waste_row):
