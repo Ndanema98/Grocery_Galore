@@ -106,8 +106,15 @@ This programme was built using knowledge gained from Python modules, for the pur
 
 
    - This feature allows the code to update the stock level worksheet with the new stock data.
+  
    
+ - ## Restart program
+   ![A screenshot of the program restart function.](/assets/restart.png)
+
+
+   - This feature allows the code to ask the user if they want to run the whole program again and add the data for another day or end it. 
     
+
  # Testing 
  - ## Manual 
    - I have manually tested the code by doing the following: 
@@ -131,7 +138,15 @@ This programme was built using knowledge gained from Python modules, for the pur
    ![A screenshot of the testing done for none numerical figures.](/assets/validation_nonenumerical.png)
 
 
-   - This test was done to make sure that only numerical values were inputted.  
+   - This test was done to make sure that only numerical values were inputted. 
+   
+
+   ![A screenshot of the testing done for the numerical figures on the restart.](/assets/restart_validationnum.png)
+   ![A screenshot of the testing done for none numerical incorrect inputs on the restart.](/assets/restart_validation.png)
+
+
+   - These tests were done to make sure that only "Y" or "N" were inputted when asking if the program should restart.
+
 
 
  - ## Validator 
@@ -143,7 +158,10 @@ This programme was built using knowledge gained from Python modules, for the pur
      - When trying to write the function to calculate the restock data, I had to add the sales column to the waste column. When trying to do this it didnt do the addition of the two columns properly as they were strings. Therefore I had to convert the columns from strings into integers before the addition was done. 
 
    - ### Unsolved
-   No remaining bugs left in the code.   
+   ![A screenshot of the bug from google sheets.](/assets/bugs_1.png)
+     
+
+     - If the spreadsheet is accessed too frequently then Google throws an error.
      
  # Technologies Used 
    - Git 
@@ -168,6 +186,8 @@ This programme was built using knowledge gained from Python modules, for the pur
 
  # Credits
  ## Acknowledgement 
+    - Stack Overflow for the use of helping me clear the terminal - https://stackoverflow.com/questions/19596750/is-there-a-way-to-clear-your-printed-text-in-python
+    - Code Institutes Love Sandwiches project
     - The online tutors that Code Institute provides. 
     - Code institute for the deployment terminal. 
     - My mentor Ben Kav for helping me when I was stuck. 
