@@ -1,3 +1,4 @@
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -62,6 +63,7 @@ def update_sales_worksheet(datasa):
     sales_worksheet = SHEET.worksheet("Dailysales")
     sales_worksheet.append_row(datasa)
     print("The sales worksheet updated successfully.\n")
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def get_dailywaste_data():
@@ -94,6 +96,7 @@ def update_waste_worksheet(datawa):
     waste_worksheet = SHEET.worksheet("Dailywastechart")
     waste_worksheet.append_row(datawa)
     print("The waste worksheet updated successfully.\n")
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def update_stock_worksheet(newstock_data):
@@ -104,6 +107,7 @@ def update_stock_worksheet(newstock_data):
     stock_worksheet = SHEET.worksheet("Stocklevels")
     stock_worksheet.append_row(newstock_data)
     print("The stock worksheet updated successfully.\n")
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def calculate_newstock_data(sales_row, waste_row):
@@ -193,28 +197,55 @@ def update_restock_worksheet(restock):
     restock_worksheet = SHEET.worksheet("Dailyrestock")
     restock_worksheet.append_row(restock)
     print("The restock worksheet updated successfully.\n")
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+
+def restart_program():
+    """
+    Provides user the choice to restart the program
+    """
+    print("Would you like to input the next day's data? (Y/N)")
+    while True:
+        option = input("\n").upper()
+        if option not in ["Y", "N"]:
+            os.system('cls' if os.name == 'nt' else "printf '\033c'")
+            print("Would you like to input the next day's data? (Y/N)")
+            print("Incorrect Input - please respond with either Y or N")
+        else:
+            if option == 'Y':
+                os.system('cls' if os.name == 'nt' else "printf '\033c'")
+                return True
+            elif option == 'N':
+                os.system('cls' if os.name == 'nt' else "printf '\033c'")
+                return False
 
 
 def main():
     """
     Run all the functions of the programme.
     """
-    datasa = get_dailysales_data()
-    dailysales_data = [int(num) for num in datasa]
-    update_sales_worksheet(dailysales_data)
-    datawa = get_dailywaste_data()
-    dailywaste_data = [int(num) for num in datawa]
-    update_waste_worksheet(dailywaste_data)
-    columnsale = get_weeklysales_entries()
-    columnwaste = get_weeklywaste_entries()
-    results = add_columnsales_columnwaste(columnsale, columnwaste)
-    restock = calculate_restock(results)
-    print(restock)
-    update_restock_worksheet(restock)
-    newstock_data = calculate_newstock_data(dailysales_data, dailywaste_data)
-    print(newstock_data)
-    update_stock_worksheet(newstock_data)
+    print("Welcome to Grocery Galore Data Automation.\n")
+    restart = True
+    while restart:
+        datasa = get_dailysales_data()
+        dailysales_data = [int(num) for num in datasa]
+        update_sales_worksheet(dailysales_data)
+        datawa = get_dailywaste_data()
+        dailywaste_data = [int(num) for num in datawa]
+        update_waste_worksheet(dailywaste_data)
+        columnsale = get_weeklysales_entries()
+        columnwaste = get_weeklywaste_entries()
+        results = add_columnsales_columnwaste(columnsale, columnwaste)
+        restock = calculate_restock(results)
+        print(restock)
+        update_restock_worksheet(restock)
+        newstock_data = calculate_newstock_data(
+            dailysales_data, dailywaste_data)
+        print(newstock_data)
+        update_stock_worksheet(newstock_data)
+        restart = restart_program()
+    print("Thank you for using Grocery Galore Data Automation")
+    quit()
 
 
-print("Welcome to Grocery Galore Data Automation.\n")
 main()

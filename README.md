@@ -1,7 +1,7 @@
 # Milestone project 3
 # Grocery Galore Survey Data Analysis
 
-["Grocery Galore Survey Data Analysis"](https://grocerygalore.herokuapp.com/) is a programme designed to manage the data of a fruit store.
+["Grocery Galore Survey Data Analysis"](https://grocerygalore.herokuapp.com/) is a programme designed to manage the data of a fruit store using a ["Google spreadsheet"](https://docs.google.com/spreadsheets/d/1RSS3h2Ib16TlZVCldceVdtXsgKBAxrh0M2AchVnSSQQ/edit?usp=sharing).
 
 This programme was built for a company which sells fruits. It will allow the user to input the daily sales data and the daily waste data of a specific fruit and add it to a google spreadsheet. The programme will also calculate the new stock levels of the fruits and calculate restock recommendations. Different validation methods are also present throughtout this programme to check whether the data being inputted is valid.
 
