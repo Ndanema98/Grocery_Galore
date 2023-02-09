@@ -34,6 +34,7 @@ def get_dailysales_data():
         if validate_data(dailysales_data):
             print("Data is valid!")
             break
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
     return dailysales_data
 
 
@@ -85,6 +86,7 @@ def get_dailywaste_data():
         if validate_data(dailywaste_data):
             print("Data is valid!")
             break
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
     return dailywaste_data
 
 
