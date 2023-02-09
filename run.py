@@ -60,7 +60,7 @@ def update_sales_worksheet(datasa):
     """
     Update sales worksheet
     """
-    print("Updating sales worksheet...\n")
+    print("Updating sales worksheet...Please wait...\n")
     sales_worksheet = SHEET.worksheet("Dailysales")
     sales_worksheet.append_row(datasa)
     print("The sales worksheet updated successfully.\n")
@@ -94,10 +94,11 @@ def update_waste_worksheet(datawa):
     """
     Update waste worksheet
     """
-    print("Updating waste worksheet...\n")
+    print("Updating waste worksheet...Please wait...\n")
     waste_worksheet = SHEET.worksheet("Dailywastechart")
     waste_worksheet.append_row(datawa)
     print("The waste worksheet updated successfully.\n")
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def update_stock_worksheet(newstock_data):
@@ -176,7 +177,7 @@ def calculate_restock(data):
     """
     Calculate the average of the fruits sales and waste combined and add
     10% to calculate restock ammount
-    #"""
+    """
     print("Calculating restock ammount...\n")
 
     restock_data = []
@@ -197,7 +198,6 @@ def update_restock_worksheet(restock):
     restock_worksheet = SHEET.worksheet("Dailyrestock")
     restock_worksheet.append_row(restock)
     print("The restock worksheet updated successfully.\n")
-    os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
 
 def restart_program():
